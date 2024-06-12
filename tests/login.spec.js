@@ -5,12 +5,12 @@ import { BASE_URL, LOGIN_END_POINT, EMAIL_VALID, PASSWORD_VALID } from "../helpe
 test.describe("Login Tests", async () => {
   let loginPage = Login;
 
-  test.beforeEach("Visit Vocabulary", async ({ page }) => {
+  test.beforeEach('Visit Vocabulary', async ({ page }) => {
     loginPage = new Login(page);
     await loginPage.goto();
   });
 
-  test("Authorization with valid data", async ({ page }) => {
+  test('Authorization With Valid Data', async ({ page }) => {
     loginPage = new Login(page);
     await loginPage.login(EMAIL_VALID, PASSWORD_VALID);
 

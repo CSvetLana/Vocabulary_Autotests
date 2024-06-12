@@ -8,7 +8,7 @@ export class Login {
     locators = {
         getEmailField: ()=> this.page.getByLabel('Email'),
         getPasswordField: ()=> this.page.getByLabel('Password'),
-        getLoginButtons: ()=> this.page.getByRole('button', {name:'Log in'}),      
+        getLoginButtons: ()=> this.page.getByRole('button', {name:'Log in'}),       
     };
     
     async goto(){
@@ -20,4 +20,5 @@ export class Login {
         await this.locators.getPasswordField().fill(password);
         await this.locators.getLoginButtons().click();
     };
+        
 }
