@@ -14,9 +14,9 @@ export class Registration {
         getPasswordConfirmationField: ()=> this.page.locator('#password_confirmation'),
         getCheckBox: ()=> this.page.locator('#terms'),
         getRegisterButton: ()=> this.page.getByRole('button', {name:'Register'}),
-        getErrorEmailMessage: ()=> this.page.locator('.mt-3'), //!заменить локатор!
-        /* getIconUser: ()=> this.page.getByAltText(NEW_USER_NAME),
-        getProfileUser: ()=> this.page.getByRole('link', {name:'Profile'}), */
+        getErrorEmailMessage: ()=> this.page.locator('.mb-4 .font-medium'),        
+        getIconUser: ()=> this.page.getByRole('button', { name: NEW_USER_NAME }),
+        getProfileUser: ()=> this.page.getByRole('link', { name: 'Profile' }),
     };
 
     async newAccountClick(){
@@ -36,8 +36,8 @@ export class Registration {
         await expect(this.locators.getErrorEmailMessage()).toContainText(ERROR_EMAIL_REG);
     };
 
-    /* async deleteUser(){
+    async deleteUser(){
         await this.locators.getIconUser().click();
         await this.locators.getProfileUser().click();
-    }; */
+    };
 }
