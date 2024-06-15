@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 import { Login } from '../page_object/Login';
 import { Registration } from '../page_object/Registration';
-import { BASE_URL, LOGIN_END_POINT, NEW_USER_NAME, NEW_USER_EMAIL, 
+import { BASE_URL, LOGIN_END_POINT, TRANSLATE_END_POINT, NEW_USER_NAME, NEW_USER_EMAIL, 
     NEW_USER_PASSWORD,NEW_USER_PASSWORD_TOO, REGISTER_END_POINT, USER_PROFILE_END_POINT} from '../helpers/testData'
 import { loadEnvFile } from 'process';
 
@@ -18,7 +18,7 @@ test.describe('User Registration', async()=>{
         await newRegistration.newUserRegistration(NEW_USER_NAME, 
             NEW_USER_EMAIL, NEW_USER_PASSWORD, NEW_USER_PASSWORD_TOO);
 
-        await expect(page).toHaveURL(BASE_URL+LOGIN_END_POINT);
+        await expect(page).toHaveURL(BASE_URL+TRANSLATE_END_POINT);
         await expect(page.locator('.flex .h-8')).toBeVisible(NEW_USER_NAME);
     });
 
@@ -31,12 +31,24 @@ test.describe('User Registration', async()=>{
 
         await expect(page).toHaveURL(BASE_URL+REGISTER_END_POINT);
     }); 
-   
-    test('Delete User', async({page})=>{
+
+    test('Delete User Profile And Click Cancel', async({page})=>{
         let newRegistration = new Registration(page);
         let loginPage = new Login(page);
         await loginPage.login(NEW_USER_EMAIL, NEW_USER_PASSWORD);
         await newRegistration.deleteUser();
+        await newRegistration.cancelButtonClick();
         await expect(page).toHaveURL(BASE_URL+USER_PROFILE_END_POINT);
     });
+   
+    test('Delete User Profile And Click Delete Account', async({page})=>{
+        let newRegistration = new Registration(page);
+        let loginPage = new Login(page);
+        await loginPage.login(NEW_USER_EMAIL, NEW_USER_PASSWORD);
+        await newRegistration.deleteUser();
+        await newRegistration.deleteAccountClick();
+        await expect(page).toHaveURL(BASE_URL+LOGIN_END_POINT);
+    });
+
+    
 })

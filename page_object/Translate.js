@@ -14,11 +14,11 @@ export class Translate {
     locators = {
         getInputLanguage: ()=> this.page.locator('#sourceLang'),
         getResutLanguage: ()=> this.page.locator('#targetLang'),
-        getEntryField:()=> this.page.getByPlaceholder('Text...', {exact:true}),
+        getEntryField:()=> this.page.getByPlaceholder('Text...', { exact:true }),
         getDictionarySelection:()=> this.page.locator('#service'),
         getTranslateButton:()=> this.page.locator('#translate-button'),
-        getTextTranslationField:()=> this.page.getByPlaceholder('Translated text...', {exact:true}),
-        getSaveButton:()=> this.page.getByRole('button', {name:'Save'}),
+        getTextTranslationField:()=> this.page.getByPlaceholder('Translated text...', { exact:true }),
+        getSaveButton:()=> this.page.getByRole('button', { name:'Save' }),
         getSavedEntryField:()=> this.page.getByRole('alert'),
     };
 

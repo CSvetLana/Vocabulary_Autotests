@@ -1,6 +1,7 @@
 //URL
 export const BASE_URL = 'https://voc.fcqdaqp.online';
-export const LOGIN_END_POINT = '/translate';
+export const TRANSLATE_END_POINT = '/translate';
+export const LOGIN_END_POINT = '/login';
 export const REGISTER_END_POINT = '/register';
 export const USER_PROFILE_END_POINT = '/user/profile'
 
