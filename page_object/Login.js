@@ -8,7 +8,8 @@ export class Login {
     locators = {
         getEmailField: ()=> this.page.getByLabel('Email'),
         getPasswordField: ()=> this.page.getByLabel('Password'),
-        getLoginButtons: ()=> this.page.getByRole('button', {name:'Log in'}),       
+        getLoginButtons: ()=> this.page.getByRole('button', {name:'Log in'}),
+        getErrorLoginMessage: ()=> this.page.locator('.mt-3'),
     };
     
     async goto(){
@@ -20,5 +21,9 @@ export class Login {
         await this.locators.getPasswordField().fill(password);
         await this.locators.getLoginButtons().click();
     };
+
+    async errorLogin(){
+        await expect(this.locators.getErrorLoginMessage()).toContainText('These credentials do not match our records.');
+    }
         
 }
