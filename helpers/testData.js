@@ -8,7 +8,7 @@ export const USER_PROFILE_END_POINT = '/user/profile'
 //test data
 export const ENTRY_SAVED = 'Entry saved!';
 export const EMAIL_VALID = 'user@gmail.com';
-export const PASSWORD_VALID = '123456789';
+export const PASSWORD_VALID = 'wen123456';
 export const PASSWORD_INCORRECT = 'incorrect';
 export const EMAIL_INCORRECT = 'user25@gmail.com';
 export const SOURCE_TEXT_EN_RU = 'User';
