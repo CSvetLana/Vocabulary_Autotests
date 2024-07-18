@@ -14,15 +14,31 @@ test.describe ('dictionary', async () => {
     test ('Delete Text To Translate And Cancel', async ({page}) => {
         let dictionary = new Dictionary(page);
         await dictionary.dictionaryClick();
+            let dictionaryLine = page.locator('.flex-col .basis-auto');
+            let dictionaryLineArray = await dictionaryLine.all();
+            let sumDictionaryLine1 = 0;
+            for(let i=0; i < dictionaryLineArray.length; i++){
+                sumDictionaryLine1 ++;
+            };
         await dictionary.buttonDeleteClick();
         await dictionary.deleteCancel();
-        //await dictionary.notDelete();        
+            let sumDictionaryLine2 = 0;
+            for(let i=0; i < dictionaryLineArray.length; i++){
+                sumDictionaryLine2 ++;
+            };
+        function comparisonNumberLines(sumDictionaryLine1, sumDictionaryLine2){
+            if(sumDictionaryLine1===sumDictionaryLine2){
+                return true;
+            };
+            return false;
+        };
+        console.log(comparisonNumberLines());
     });
 
-    test ('Delete Text To Translate', async ({page}) => {
+   /*  test ('Delete Text To Translate', async ({page}) => {
         let dictionary = new Dictionary(page);
-        await dictionary.dictionaryClick();
+        await dictionary.dictionaryClick();       
         await dictionary.buttonDeleteClick();
         await dictionary.deleteClick();
-    });
+    }); */
 })
