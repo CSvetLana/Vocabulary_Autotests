@@ -1,8 +1,8 @@
-import { test, expect } from "@playwright/test";
-import { Login } from "../page_object/Login";
-import { Translate } from "../page_object/Translate";
+import { test, expect } from '@playwright/test';
+import { Login } from '../page_object/Login';
+import { Translate } from '../page_object/Translate';
 import { EMAIL_VALID, PASSWORD_VALID, SOURCE_TEXT_EN_RU, RESULT_TEXT_EN_RU, SOURCE_TEXT_DE_RU, RESULT_TEXT_DE_RU, 
-  SOURCE_TEXT_EN_DE, RESULT_TEXT_EN_DE, SOURCE_TEXT_TR_EN, RESULT_TEXT_TR_EN } from "../helpers/testData"; 
+  SOURCE_TEXT_EN_DE, RESULT_TEXT_EN_DE, SOURCE_TEXT_TR_EN, RESULT_TEXT_TR_EN } from '../helpers/testData'; 
 
 test.describe('translate', async () => {
   let translatePage = Translate;

@@ -1,7 +1,7 @@
-import { test, expect } from "@playwright/test";
-import { Login } from "../page_object/Login";
+import { test, expect } from '@playwright/test';
+import { Login } from '../page_object/Login';
 import { BASE_URL, TRANSLATE_END_POINT, EMAIL_VALID, PASSWORD_VALID, NEW_USER_EMAIL, 
-  NEW_USER_PASSWORD,LOGIN_END_POINT, PASSWORD_INCORRECT, EMAIL_INCORRECT } from "../helpers/testData";
+  NEW_USER_PASSWORD,LOGIN_END_POINT, PASSWORD_INCORRECT, EMAIL_INCORRECT } from '../helpers/testData';
 
 test.describe('Login Tests', async () => {
   let loginPage = Login;

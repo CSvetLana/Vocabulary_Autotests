@@ -1,7 +1,7 @@
-import { test, expect } from "@playwright/test";
-import { Login } from "../page_object/Login";
-import { EMAIL_VALID, PASSWORD_VALID } from "../helpers/testData";
-import { Dictionary } from "../page_object/Dictionary";
+import { test, expect } from '@playwright/test';
+import { Login } from '../page_object/Login';
+import { EMAIL_VALID, PASSWORD_VALID } from '../helpers/testData';
+import { Dictionary } from '../page_object/Dictionary';
 
 test.describe('dictionary', async () => {
   test.beforeEach('Login', async ({ page }) => {
@@ -38,7 +38,7 @@ test.describe('dictionary', async () => {
 
     let dictionaryLine = page.locator('.flex-col .basis-auto');
     let dictionaryLineArray = await dictionaryLine.all();
-    let sumDictionaryLine1 = dictionaryLineArray.length;   
+    let sumDictionaryLine1 = dictionaryLineArray.length;
     await dictionary.buttonDeleteClick();
     await dictionary.deleteClick();
     await page.waitForFunction((initialLength) => {
@@ -59,9 +59,27 @@ test.describe('dictionary', async () => {
   });
   
 
-  /* test('Eddit Text To Translate', async ({ page }) => {
+  test('Eddit Text To Translate', async ({ page }) => {
     let dictionary = new Dictionary(page);
     await dictionary.dictionaryClick();
+    let dictionaryLine = page.locator('.flex-col .basis-auto');
+    let dictionaryLineArray = await dictionaryLine.all();
+    let sumDictionaryLine1 = dictionaryLineArray.length;
+    console.log(sumDictionaryLine1);
     await dictionary.editClick();
-  }); */
+    await dictionary.sourceTextField('brot123');
+    await dictionary.saveButton();
+    await page.reload();
+    let newDictionaryLineArray = await dictionaryLine.all();
+    let sumDictionaryLine2 = 0;
+    for (let i = 0; i < newDictionaryLineArray.length; i++) {
+      sumDictionaryLine2++;
+    };
+    console.log(sumDictionaryLine2);
+    let compar = false;
+    if (sumDictionaryLine1 + 1 === sumDictionaryLine2) {
+      compar = true;
+    };
+    console.log(compar);
+  });
 });
