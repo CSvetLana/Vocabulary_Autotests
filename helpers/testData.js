@@ -24,3 +24,4 @@ export const NEW_USER_EMAIL = 'newuser@gmail.com';
 export const NEW_USER_PASSWORD = '456789123';
 export const NEW_USER_PASSWORD_TOO = '456789123';
 export const ERROR_EMAIL_REG = 'Whoops! Something went wrong.';
+export const NEW_TEXT = "new_text"

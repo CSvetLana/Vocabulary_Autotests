@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { Login } from '../page_object/Login';
-import { EMAIL_VALID, PASSWORD_VALID } from '../helpers/testData';
+import { EMAIL_VALID, PASSWORD_VALID, NEW_TEXT } from '../helpers/testData';
 import { Dictionary } from '../page_object/Dictionary';
 
 test.describe('dictionary', async () => {
@@ -67,7 +67,7 @@ test.describe('dictionary', async () => {
     let sumDictionaryLine1 = dictionaryLineArray.length;
     console.log(sumDictionaryLine1);
     await dictionary.editClick();
-    await dictionary.sourceTextField('brot123');
+    await dictionary.sourceTextField(NEW_TEXT);
     await dictionary.saveButton();
     await page.reload();
     let newDictionaryLineArray = await dictionaryLine.all();
